@@ -13,14 +13,8 @@ import org.losincreibles.services.models.User;
  *
  * @author axel_
  */
-/**
- this.idUsuario = idUsuario;
-        this.usuario = usuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.correo = correo;
-        this.contraseña = contraseña;**/
+
+
 public class ControllerUser {
 
     public User saveUser(User u){

@@ -4,10 +4,15 @@
  */
 package org.losincreibles.services.controller;
 
+import org.losincreibles.services.models.Tratamiento;
+
 /**
  *
  * @author axel_
  */
 public class ControllerTratamiento {
-    
+    public Tratamiento getTratamiento(Tratamiento t){
+        
+        return t;
+    }
 }
