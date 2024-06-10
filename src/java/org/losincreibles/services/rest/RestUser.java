@@ -52,4 +52,27 @@ public class RestUser {
         return Response.ok(out).build();
         
     }
+    
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("login")
+    public Response login(@FormParam("usuario") String user,
+                      @FormParam("contraseña") String password) {
+
+        String out = "";
+        try {
+            User us = new User();
+            us.setUsuario(user);
+            us.setContraseña(password);
+            User validatedUser = controllerUser.getUsercc(us);
+            if (validatedUser.getIdUsuario() != 0) {
+                out = "{\"Response\": \"Login exitoso\", \"User\": \"" + validatedUser.getUsuario() + "\" }";
+            } else {
+                out = "{\"Response\": \"Usuario o contraseña incorrectos\" }";
+            }
+       } catch (Exception e) {
+           out = "{\"Response\": \"Error al realizar el login\" }";
+       }
+       return Response.ok(out).build();
+    }
  }
