@@ -55,7 +55,7 @@ public class ControllerUser {
                 u.setIdUsuario(rs.getInt("idUsuario"));
                 u.setUsuario(rs.getString("usuario"));
                 u.setContraseña(rs.getString("contraseña"));
-              
+                
                 
                 listUsers.add(u);
             }
@@ -66,6 +66,37 @@ public class ControllerUser {
             return listUsers;
         }
     }
+    
+    public User getUserById(User u){                                                         
+        String query = "SELECT * FROM usuario WHERE idUsuario = ?";  
+
+        try{
+            ConexionMySql connMySql = new ConexionMySql();  
+            Connection conn = connMySql.open();
+            PreparedStatement pstm = conn.prepareStatement(query);
+            pstm.setInt(1, u.getIdUsuario());
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()){
+                u.setIdUsuario(rs.getInt("idUsuario"));
+                u.setUsuario(rs.getString("usuario"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellido(rs.getString("apellido"));
+                u.setCorreo(rs.getString("correo"));
+                u.setEdad(rs.getInt("edad"));
+                u.setContraseña(rs.getString("contraseña"));
+            }else{
+                
+                u.setIdUsuario(0);
+            }
+            rs.close();
+            pstm.close();
+            connMySql.close();
+        }catch(Exception e){
+            e.printStackTrace();
+       }        
+       return u;     
+    }
+
           
    public User getUsercc(User u) {
     String query = "SELECT * FROM usuario WHERE usuario = ? AND contraseña = ?";  

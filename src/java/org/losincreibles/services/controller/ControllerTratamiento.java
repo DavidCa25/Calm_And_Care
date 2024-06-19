@@ -56,4 +56,120 @@ public class ControllerTratamiento {
        }        
        return u;  
     }   
+    public List<Tratamiento> getTratamientoByManicura(){ 
+        List<Tratamiento> listManicura = new ArrayList();
+        String query = "SELECT * FROM Tratamiento WHERE tratamiento = 'manicura'";  
+
+        try{
+            ConexionMySql connMySql = new ConexionMySql();  
+            Connection conn = connMySql.open();
+            PreparedStatement pstm = conn.prepareStatement(query);
+            
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                Tratamiento t = new Tratamiento();
+                t.setIdTratamiento(rs.getInt("idTratamiento"));
+                t.setTratamiento(rs.getString("tratamiento"));
+                t.setServicio(rs.getString("servicioTratamiento"));
+                t.setPrecio(rs.getInt("precio"));
+                
+            
+                
+                listManicura.add(t);
+            }
+            return listManicura;
+               
+        }catch(Exception e){
+            e.printStackTrace();
+            return listManicura;  
+       }        
+          
+    }
+    public List<Tratamiento> getTratamientoByMasaje(){ 
+        List<Tratamiento> listManicura = new ArrayList();
+        String query = "SELECT * FROM Tratamiento WHERE tratamiento = 'masaje'";  
+
+        try{
+            ConexionMySql connMySql = new ConexionMySql();  
+            Connection conn = connMySql.open();
+            PreparedStatement pstm = conn.prepareStatement(query);
+            
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                Tratamiento t = new Tratamiento();
+                t.setIdTratamiento(rs.getInt("idTratamiento"));
+                t.setTratamiento(rs.getString("tratamiento"));
+                t.setServicio(rs.getString("servicioTratamiento"));
+                t.setPrecio(rs.getInt("precio"));
+                
+            
+                
+                listManicura.add(t);
+            }
+            return listManicura;
+               
+        }catch(Exception e){
+            e.printStackTrace();
+            return listManicura;  
+       }        
+          
+    }
+    public List<Tratamiento> getTratamientoByPedicura(){ 
+        List<Tratamiento> listManicura = new ArrayList();
+        String query = "SELECT * FROM Tratamiento WHERE tratamiento = 'pedicura'";  
+
+        try{
+            ConexionMySql connMySql = new ConexionMySql();  
+            Connection conn = connMySql.open();
+            PreparedStatement pstm = conn.prepareStatement(query);
+            
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                Tratamiento t = new Tratamiento();
+                t.setIdTratamiento(rs.getInt("idTratamiento"));
+                t.setTratamiento(rs.getString("tratamiento"));
+                t.setServicio(rs.getString("servicioTratamiento"));
+                t.setPrecio(rs.getInt("precio"));
+                
+            
+                
+                listManicura.add(t);
+            }
+            return listManicura;
+               
+        }catch(Exception e){
+            e.printStackTrace();
+            return listManicura;  
+       }        
+          
+    }
+    public List<Tratamiento> getTratamientoByExfoliacion(){ 
+        List<Tratamiento> listManicura = new ArrayList();
+        String query = "SELECT * FROM Tratamiento WHERE tratamiento = 'exfoliacion'";  
+
+        try{
+            ConexionMySql connMySql = new ConexionMySql();  
+            Connection conn = connMySql.open();
+            PreparedStatement pstm = conn.prepareStatement(query);
+            
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                Tratamiento t = new Tratamiento();
+                t.setIdTratamiento(rs.getInt("idTratamiento"));
+                t.setTratamiento(rs.getString("tratamiento"));
+                t.setServicio(rs.getString("servicioTratamiento"));
+                t.setPrecio(rs.getInt("precio"));
+                
+            
+                
+                listManicura.add(t);
+            }
+            return listManicura;
+               
+        }catch(Exception e){
+            e.printStackTrace();
+            return listManicura;  
+       }        
+          
+    }
 }

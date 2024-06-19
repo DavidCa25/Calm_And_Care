@@ -14,13 +14,13 @@ public class SeguimientoEmocion {
     private int idSeguimiento;
     private Date fechaRegistro;
     private String emocion;
-    private User _idUsuario;
+    private User idUsuario;
 
-    public SeguimientoEmocion(int idSeguimiento, Date fechaRegistro, String emocion, User _idUsuario) {
+    public SeguimientoEmocion(int idSeguimiento, Date fechaRegistro, String emocion, User idUsuario) {
         this.idSeguimiento = idSeguimiento;
         this.fechaRegistro = fechaRegistro;
         this.emocion = emocion;
-        this._idUsuario = _idUsuario;
+        this.idUsuario = idUsuario;
     }
 
     public int getIdSeguimiento() {
@@ -48,11 +48,11 @@ public class SeguimientoEmocion {
     }
 
     public User getIdUsuario() {
-        return _idUsuario;
+        return idUsuario;
     }
 
-    public void setIdUsuario(User _idUsuario) {
-        this._idUsuario = _idUsuario;
+    public void setIdUsuario(User idUsuario) {
+        this.idUsuario = idUsuario;
     }
     
     
