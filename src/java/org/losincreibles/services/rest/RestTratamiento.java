@@ -111,6 +111,5 @@ public class RestTratamiento {
     }
     
     return Response.ok(out).build();
-}
-
+    }
 }
