@@ -28,7 +28,7 @@ public class ControllerTratamiento {
                 Tratamiento t = new Tratamiento();
                 t.setIdTratamiento(rs.getInt("idTratamientos"));
                 t.setTratamiento(rs.getString("tratamiento"));            
-                
+                t.setServicio(rs.getString("servicio"));
                 listTratamientos.add(t);
             }
         } catch (Exception e) {
@@ -172,4 +172,34 @@ public class ControllerTratamiento {
        }        
           
     }
+    private Tratamiento getTratamientoById(int idTratamiento) {
+    String query = "SELECT * FROM Tratamiento WHERE idTratamiento = ?";
+    Tratamiento tratamiento = null;
+    
+    try {
+        ConexionMySql connMySql = new ConexionMySql();
+        Connection conn = connMySql.open();
+        PreparedStatement pstm = conn.prepareStatement(query);
+        pstm.setInt(1, idTratamiento);
+        ResultSet rs = pstm.executeQuery();
+        
+        if (rs.next()) {
+            tratamiento = new Tratamiento(
+                rs.getInt("idTratamiento"),
+                rs.getString("tratamiento"),
+                rs.getString("servicio"),
+                rs.getInt("precio")
+            );
+        }
+        
+        rs.close();
+        pstm.close();
+        
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    
+    return tratamiento;
+}
+    
 }
